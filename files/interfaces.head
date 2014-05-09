@@ -1,0 +1,9 @@
+# THIS FILE IS MANAGED BY PUPPET, CHANGES WILL BE OVERWRITTEN WITHOUT FURTHER NOTICE
+#
+# managed by module: networkinterfaces
+#
+# /etc/network/interfaces
+
+# The loopback interface
+auto lo
+iface lo inet loopback

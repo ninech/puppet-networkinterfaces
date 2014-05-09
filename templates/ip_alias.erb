@@ -1,0 +1,3 @@
+    # Networkinterfaces::Ip_alias[<%= name %>]
+    up ip addr add <%= ip %> dev <%= interface %>
+    down ip addr del <%= ip %> dev <%= interface %>
