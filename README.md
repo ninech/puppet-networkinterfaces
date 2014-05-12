@@ -21,3 +21,7 @@ possible variables see networkinterfaces::interface.
 
 ### default_gateway
 This fact gathers the active default gateway out of the output of `ip route show`.
+
+## Copyright
+
+Copyright (c) 2014 Nine Internet Solutions AG. See LICENSE.txt for further details.
