@@ -178,7 +178,7 @@ define networkinterfaces::interface (
   include networkinterfaces
 
   # Validate interface name. Old-school aliases (eth0:1) not allowed
-  validate_re($interface, '^[a-z]*[0-9]*$')
+  validate_re($interface, '^[a-z-]*[0-9]*$')
 
   concat::fragment { "interfaces_${name}":
     ensure  => $enable,
