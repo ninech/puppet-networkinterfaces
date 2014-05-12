@@ -1,65 +1,71 @@
 
-# interface <%= name %>
-<% if int_auto == true -%>
-auto <%= interface %>
+# interface <%= @name %>
+<% if @int_auto == true -%>
+auto <%= @interface %>
 <% end -%>
-iface <%= interface %> <%= family %> <%= arg %>
+iface <%= @interface %> <%= @family %> <%= @arg %>
 <% if @ip -%>
-    address <%= ip %>
-    netmask <%= netmask %>
+    address <%= @ip %>
+    netmask <%= @netmask %>
 <% if @broadcast -%>
-    broadcast <%= broadcast %>
+    broadcast <%= @broadcast %>
 <% end -%>
 <% if @network -%>
-    network <%= network %>
+    network <%= @network %>
 <% end -%>
 <% if @gateway -%>
-    gateway <%= gateway %>
+    gateway <%= @gateway %>
 <% end -%>
-<% ip_aliases.each do |ip_alias| -%>
-    up ip addr add <%= ip_alias %> dev <%= interface %>
-    down ip addr del <%= ip_alias %> dev <%= interface %>
+<% @ip_aliases.each do |ip_alias| -%>
+    up ip addr add <%= ip_alias %> dev <%= @interface %>
+    down ip addr del <%= ip_alias %> dev <%= @interface %>
 <% end -%>
 <% end -%>
-<% up_commands.each do |up_command| -%>
+<% @up_commands.each do |up_command| -%>
     up <%= up_command %>
 <% end -%>
-<% down_commands.each do |down_command| -%>
+<% @down_commands.each do |down_command| -%>
     down <%= down_command %>
 <% end -%>
-<% post_up_commands.each do |up_command| -%>
+<% @post_up_commands.each do |up_command| -%>
     post-up <%= up_command %>
 <% end -%>
-<% pre_down_commands.each do |down_command| -%>
+<% @pre_down_commands.each do |down_command| -%>
     pre-down <%= down_command %>
 <% end -%>
-<% if @bond_master -%>
-    bond-master <%= bond_master %>
+<% if @dns_nameservers -%>
+    dns-nameservers <%= @dns_nameservers %>
 <% end -%>
-<% if bond_slaves != [] -%>
-    bond_slaves <%= bond_slaves.join(' ') %>
-    bond_primary <%= bond_primary %>
-    bond_mode <%= bond_mode %>
+<% if @dns_search -%>
+    dns-search <%= @dns_search %>
+<% end -%>
+<% if @bond_master -%>
+    bond-master <%= @bond_master %>
+<% end -%>
+<% if @bond_slaves != [] -%>
+    bond_slaves <%= @bond_slaves.join(' ') %>
+    bond_primary <%= @bond_primary %>
+    bond_mode <%= @bond_mode %>
 <%   if @bond_arp_interval and @bond_arp_ip_target -%>
-    bond_arp_interval <%= bond_arp_interval %>
-    bond_arp_ip_target <%= bond_arp_ip_target %>
-    bond_arp_validate <%= bond_arp_validate %>
+    bond_arp_interval <%= @bond_arp_interval %>
+    bond_arp_ip_target <%= @bond_arp_ip_target %>
+    bond_arp_validate <%= @bond_arp_validate %>
 <%   else -%>
-    bond_miimon <%= bond_miimon %>
+    bond_miimon <%= @bond_miimon %>
 <%   end -%>
 <%   if @bond_xmit_hash_policy -%>
-    bond_xmit_hash_policy <%= bond_xmit_hash_policy %>
+    bond_xmit_hash_policy <%= @bond_xmit_hash_policy %>
 <%   end -%>
 <%   if @bond_lacp_rate -%>
-    bond_lacp_rate <%= bond_lacp_rate %>
+    bond_lacp_rate <%= @bond_lacp_rate %>
 <%   end -%>
 <% end -%>
-<% if bridge_ports != [] -%>
-    bridge_ports <%= bridge_ports.respond_to?(:join) ? bridge_ports.join(' ') : bridge_ports %>
-    bridge_stp <%= bridge_stp %>
-    bridge_fd <%= bridge_fd %>
-    bridge_maxage <%= bridge_maxage %>
+<% if @bridge_ports != [] -%>
+    bridge_ports <%= @bridge_ports.respond_to?(:join) ? @bridge_ports.join(' ') : @bridge_ports %>
+    bridge_stp <%= @bridge_stp %>
+    bridge_fd <%= @bridge_fd %>
+    bridge_maxage <%= @bridge_maxage %>
 <% end -%>
 <% if @vlan_raw_dev -%>
-    vlan-raw-device <%= vlan_raw_dev %>
+    vlan-raw-device <%= @vlan_raw_dev %>
 <% end -%>

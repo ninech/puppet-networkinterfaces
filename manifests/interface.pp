@@ -150,6 +150,9 @@ define networkinterfaces::interface (
   $post_up_commands   = [],
   $down_commands      = [],
   $pre_down_commands  = [],
+  # DNS API
+  $dns_nameservers    = undef,
+  $dns_search         = undef,
   # Bond API
   $bond_slaves        = [],
   $bond_master        = undef,
