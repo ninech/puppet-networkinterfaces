@@ -40,6 +40,12 @@
 # [*ip_aliases*]
 #   Additional addresses to add.
 #
+# [*dns_nameservers*]
+#   DNS nameservers to configure (using resolvconf)
+#
+# [*dns_search*]
+#   DNS search domain to configure (using resolvconf)
+#
 # [*up_commands*]
 #   Interface up hooks.
 #
